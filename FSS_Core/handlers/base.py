@@ -19,7 +19,7 @@ class BaseHandler(RequestHandler):
     def write_response(self, status_code, result=None, message=None):
         self.set_status(status_code)
         if result:
-            self.finish(json.dumps(result))
+            self.finish(json.dumps(result, default=str))
         elif message:
             self.finish(json.dumps({
                 "message": message

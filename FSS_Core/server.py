@@ -5,8 +5,8 @@ import tornado.web
 import tornado.ioloop
 
 import peewee
-from models.team import *
-from handlers.team import TeamHandler
+from models.common import *
+from handlers.common import *
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
@@ -25,7 +25,7 @@ async def main():
     # Create Database Table
     db = peewee.SqliteDatabase('data.sqlite')
     db.connect()
-    db.create_tables([Team])
+    db.create_tables([Team, Event, Event.teams.get_through_model()])
     db.close()
 
     settings = {
@@ -37,6 +37,7 @@ async def main():
     application = tornado.web.Application([
         (r"/" , MainHandler),
         (r"/api/team/(\d*$)", TeamHandler),
+        (r"/api/event/([a-zA-Z0-9]*$)", EventHandler),
     ] , **settings)
     application.listen(8888)
     await asyncio.Event().wait()

@@ -42,7 +42,7 @@
     <Compile Include="handlers\base.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="handlers\team.py">
+    <Compile Include="handlers\common.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="handlers\__init__.py">
@@ -51,13 +51,13 @@
     <Compile Include="models\base.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="models\team.py">
+    <Compile Include="models\common.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="models\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="database\sqlite.py">
+    <Compile Include="database\repository.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="database\__init__.py">
